@@ -1,0 +1,42 @@
+<h2>Popis studenata</h2>
+<ul>
+
+    <li *ngFor="let student of students">
+        <a href="#" routerLink='/students/{{student.jmbag}}'> {{student.jmbag}} ECTS {{student.ects}}</a>
+        <div class="button"><button (click)=delete(student.jmbag)>Delete</button></div>
+    </li>
+</ul>
+<div>
+    <h3>Unesi novog Studenta</h3>
+    <div>
+        <label>Ime:
+            <div>
+                <input #studentFirstName />
+            </div>
+        </label>
+    </div>
+    <div>
+        <label>Prezime:
+            <div>
+                <input #studentLastName>
+            </div>
+        </label>
+    </div>
+    <div>
+        <label>JMBAG:
+            <div>
+                <input #studentJMBAG>
+            </div>
+        </label>
+    </div>
+    <div>
+        <label>Broj ECTS bodova:
+            <div>
+                <input type="number" #studentects />
+            </div>
+        </label>
+    </div>
+    <div class="button"><button (click)="add(studentFirstName.value, studentLastName.value, studentJMBAG.value, studentects.value); studentFirstName.value=''; studentLastName.value=''; studentJMBAG.value=''; studentects.value=''">
+        Unesi studenta
+    </button></div>
+</div>

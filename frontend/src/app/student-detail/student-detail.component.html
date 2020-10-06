@@ -1,0 +1,17 @@
+<div *ngIf="student" class="wrap">
+
+    <h2>Detalji studenta {{student.jmbag}}</h2>
+
+    <div><span>JMBAG: </span>{{student.jmbag}}</div>
+
+    <div><span>ECTS: </span>{{student.ects}}</div>
+
+    <div *ngIf="student.paysTuition">Student treba platiti skolarinu.</div>
+
+    <div *ngIf="!student.paysTuition">Student ne treba platiti skolarinu.</div>
+
+    <h2>Upisani kolegiji</h2>
+    <ul>
+        <li *ngFor="let course of courses | async">{{course.name}}</li>
+    </ul>
+</div>
